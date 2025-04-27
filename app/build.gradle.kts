@@ -1,12 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.compose.compiler)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
     namespace = "com.praroop.newshy"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.praroop.newshy"
@@ -81,4 +83,17 @@ dependencies {
     implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     //splash
     implementation ("androidx.core:core-splashscreen:1.0.1")
+
+    // dagger Hilt
+    // Hilt for Dependency Injection
+    implementation(libs.hilt.core)
+    ksp(libs.hilt.compiler)
+    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+
+    val roomVersion = "2.5.2"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+   implementation("androidx.room:room-paging:$roomVersion")
 }

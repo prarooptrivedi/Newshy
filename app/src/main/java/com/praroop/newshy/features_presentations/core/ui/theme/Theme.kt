@@ -1,4 +1,4 @@
-package com.praroop.newshy.ui.theme
+package com.praroop.newshy.features_presentations.core.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -103,7 +103,7 @@ fun NewshyTheme(
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            WindowCompat.getInsetsController(window, view)?.isAppearanceLightStatusBars = !darkTheme
         }
     }
 

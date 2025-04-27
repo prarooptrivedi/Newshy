@@ -1,8 +1,8 @@
 package com.praroop.newshy.utils
 
 import com.praroop.newshy.R
-import com.praroop.newshy.models.Country
-import com.praroop.newshy.models.Language
+import com.praroop.newshy.features_component.core.domain.models.Country
+import com.praroop.newshy.features_component.core.domain.models.Language
 import java.text.SimpleDateFormat
 import java.util.Locale
 

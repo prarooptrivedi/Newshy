@@ -1,4 +1,4 @@
-package com.praroop.newshy.ui.theme
+package com.praroop.newshy.features_presentations.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
