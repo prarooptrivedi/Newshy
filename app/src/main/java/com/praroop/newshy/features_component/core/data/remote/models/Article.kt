@@ -1,6 +1,7 @@
 package com.praroop.newshy.features_component.core.data.remote.models
 
 
+import com.praroop.newshy.features_component.discover.data.local.model.DiscoverArticleDto
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -23,3 +24,19 @@ data class Article(
     @SerialName("urlToImage")
     val urlToImage: String? = null
 )
+fun Article.toDiscoverArticle(page:Int,categoty:String):DiscoverArticleDto{
+    return DiscoverArticleDto(
+        author = author?:"",
+        content = content?:"",
+        description = description?:"",
+        publishedAt = publishedAt?:"",
+        title = title?:"",
+        source = source?.name?:"",
+        category = categoty?:"",
+
+
+        url = url?:"",
+        urlToImage = urlToImage?:"",
+        page = page
+    )
+}
