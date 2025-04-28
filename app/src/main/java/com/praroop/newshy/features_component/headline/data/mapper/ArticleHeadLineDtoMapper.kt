@@ -6,20 +6,22 @@ import com.praroop.newshy.features_component.headline.data.local.model.HeadLineD
 import okhttp3.internal.checkOffsetAndCount
 
 class ArticleHeadLineDtoMappe(
-    private val page:Int=0,
-    private val category:String=""
-):Mapper<Article,HeadLineDto> {
+    private val page: Int = 0,
+    private val category: String = ""
+) : Mapper<Article, HeadLineDto> {
     override fun toModel(value: Article): HeadLineDto {
         return value.run {
             HeadLineDto(
-               author = formatEmpptyValue(author,"author"),
-                content = formatEmpptyValue(content,"content"),
-                description = formatEmpptyValue(description,"description"),
-                publishedAt = publishedAt,
-                source = source.name,
-                title = title,
-                url = url,
-                urlToImage = urlToImage,
+
+                author = formatEmpptyValue(author, "author"),
+                content = formatEmpptyValue(content, "content"),
+                description = formatEmpptyValue(description, "description"),
+                publishedAt = publishedAt!!,
+//                source = source.name,
+                source = "source.name",
+                title = title!!,
+                url = url!!,
+                urlToImage = urlToImage?:"",
                 page = page,
                 category = category,
             )
@@ -27,13 +29,14 @@ class ArticleHeadLineDtoMappe(
     }
 
     override fun fromModel(value: HeadLineDto): Article {
-      return value.run {
-          Article(
-              author, content, description, publishedAt
-          )
-      }
+        return value.run {
+            Article(
+                author, content, description, publishedAt
+            )
+        }
     }
-    private fun formatEmpptyValue(value: String?,default:String=""):String{
-        return value?:"Unknown $default"
+
+    private fun formatEmpptyValue(value: String?, default: String = ""): String {
+        return value ?: "Unknown $default"
     }
 }

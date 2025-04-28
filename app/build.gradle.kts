@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.serialization)
+
 }
 
 android {
@@ -59,41 +61,44 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     //compose
-    val navVersion = "2.7.2"
-    implementation("androidx.navigation:navigation-compose:$navVersion")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-    implementation ("androidx.compose.material:material-icons-extended:1.4.1")
-    implementation ("androidx.compose.ui:ui-util")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
+    val navVersion = "2.8.9"
+    implementation(libs.androidx.navigation.compose)
+    implementation (libs.androidx.lifecycle.viewmodel.compose)
+    implementation (libs.androidx.material.icons.extended)
+    implementation (libs.androidx.ui.util)
+    implementation(libs.androidx.lifecycle.viewmodel.compose.v262)
+    implementation(libs.androidx.lifecycle.runtime.compose)
     //Paging3
-    val paging_version = "3.2.1"
-    implementation("androidx.paging:paging-compose:$paging_version")
-    implementation("androidx.paging:paging-runtime-ktx:$paging_version")
+    val paging_version = "3.3.6"
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.paging.runtime.ktx)
 
 
     //Coil
-    implementation("io.coil-kt:coil-compose:2.1.0")
+    implementation(libs.coil.compose)
 
     // Network
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.okhttp3:okhttp:4.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
-    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
+    implementation(libs.retrofit.core)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor.v4120)
+    implementation(libs.kotlinx.serialization.json)
+
+
+    // implementation (libs.kotlinx.serialization.json)
     //splash
-    implementation ("androidx.core:core-splashscreen:1.0.1")
+    implementation (libs.androidx.core.splashscreen)
 
     // dagger Hilt
     // Hilt for Dependency Injection
     implementation(libs.hilt.core)
     ksp(libs.hilt.compiler)
-    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation (libs.androidx.hilt.navigation.compose)
 
 
-    val roomVersion = "2.5.2"
-    implementation("androidx.room:room-runtime:$roomVersion")
-    ksp("androidx.room:room-compiler:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-   implementation("androidx.room:room-paging:$roomVersion")
+    val roomVersion = "2.7.1"
+    implementation(libs.androidx.room.runtime.v271)
+    ksp(libs.androidx.room.compiler.v271)
+    implementation(libs.androidx.room.ktx.v271)
+   implementation(libs.androidx.room.paging)
 }

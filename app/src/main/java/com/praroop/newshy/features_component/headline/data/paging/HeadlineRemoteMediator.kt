@@ -72,7 +72,7 @@ class HeadlineRemoteMediator(
                 country = country,
                 language = language,
                 page = page,
-                pageSize = 2,
+                pageSize = 20,
 
             )
 
@@ -92,7 +92,7 @@ class HeadlineRemoteMediator(
                 val nextKey = if (endOfpagginationReached) null else page + 1
                 val remoteKey = headlineArticles.map {
                     HeadlineRemoteKey(
-                        articleId = it.url,
+                        articleId = it.url!!,
                         prevKey = prevKey,
                         nextKey = nextKey,
                         currentPage = page

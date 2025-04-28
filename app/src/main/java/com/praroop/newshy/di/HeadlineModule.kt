@@ -40,6 +40,10 @@ object HeadlineModule {
     @Singleton
     fun provideHeadlineApi(): HeadlineApi {
         val contentType = "application/json".toMediaType()
+        val json = Json {
+            ignoreUnknownKeys = true
+            // you can add more settings if needed
+        }
         return Retrofit.Builder()
             .baseUrl(K.BASE_URL)
             .addConverterFactory(json.asConverterFactory(contentType))
