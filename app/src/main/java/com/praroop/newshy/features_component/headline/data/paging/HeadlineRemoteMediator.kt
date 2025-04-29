@@ -9,6 +9,7 @@ import androidx.paging.RemoteMediator
 import coil.network.HttpException
 import com.praroop.newshy.features_component.core.data.local.NewsyArticleDatabase
 import com.praroop.newshy.features_component.core.data.remote.models.Article
+import com.praroop.newshy.features_component.core.data.remote.models.toHeadlineArticle
 import com.praroop.newshy.features_component.core.domain.mapper.Mapper
 import com.praroop.newshy.features_component.headline.data.local.model.HeadLineDto
 import com.praroop.newshy.features_component.headline.data.local.model.HeadlineRemoteKey
@@ -20,7 +21,6 @@ import java.util.concurrent.TimeUnit
 class HeadlineRemoteMediator(
     private val api: HeadlineApi,
     private val database: NewsyArticleDatabase,
-    private val articleheadlineDtoMapper:Mapper<Article,HeadLineDto>,
     private val category: String = "",
     private val country: String = "",
     private val language: String = ""
@@ -103,9 +103,7 @@ class HeadlineRemoteMediator(
                     headlineRemoteDao().insertAll(remoteKey)
                     headlineDao().insertHeadlineArticle(
                         article = headlineArticles.map {
-                            articleheadlineDtoMapper.toModel(
-                                it
-                            )
+                          it.toHeadlineArticle(page,category)
                         }
                     )
                 }

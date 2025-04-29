@@ -63,7 +63,7 @@ object HeadlineModule {
             headlineApi = api,
             database = database,
             mapper = mapper,
-            articleHeadlineMapper = articleHeadlineMapper
+//            articleHeadlineMapper = articleHeadlineMapper
         )
 
     }

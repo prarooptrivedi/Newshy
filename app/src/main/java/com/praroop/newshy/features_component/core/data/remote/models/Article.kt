@@ -2,6 +2,7 @@ package com.praroop.newshy.features_component.core.data.remote.models
 
 
 import com.praroop.newshy.features_component.discover.data.local.model.DiscoverArticleDto
+import com.praroop.newshy.features_component.headline.data.local.model.HeadLineDto
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -39,4 +40,23 @@ fun Article.toDiscoverArticle(page:Int,categoty:String):DiscoverArticleDto{
         urlToImage = urlToImage?:"",
         page = page
     )
+}
+fun Article.toHeadlineArticle(page: Int,category: String):HeadLineDto{
+    return HeadLineDto(
+        author = formatEmptyVale(author, "author"),
+        content = formatEmptyVale(content, "content"),
+        description = formatEmptyVale(description, "description"),
+        publishedAt = publishedAt!!,
+//                source = source.name,
+        source = "source.name",
+        title = title!!,
+        url = url!!,
+        urlToImage = urlToImage?:"",
+        page = page,
+        category = category,
+    )
+}
+
+private fun formatEmptyVale(value:String?,default:String):String {
+    return value ?: "Unknown $default"
 }

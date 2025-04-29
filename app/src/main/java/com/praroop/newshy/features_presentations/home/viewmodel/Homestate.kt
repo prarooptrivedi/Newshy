@@ -8,5 +8,7 @@ import kotlinx.coroutines.flow.emptyFlow
 
 data class Homestate (
     val headlineArticles:Flow<PagingData<NewsyArticel>> = emptyFlow(),
+    val discoverArticle:Flow<PagingData<NewsyArticel>> = emptyFlow(),
+    val selectedDiscoverCategory:ArticleCategory=ArticleCategory.SPORTS,
     val selectedCategory:ArticleCategory=ArticleCategory.BUSINESS,
     )

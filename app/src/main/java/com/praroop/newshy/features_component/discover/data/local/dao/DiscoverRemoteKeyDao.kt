@@ -26,5 +26,5 @@ interface DiscoverRemoteKeyDao {
     suspend fun getCurrentCategory(): String
 
     @Query("UPDATE discover_keys SET current_category=:category")
-    suspend fun updateCategory(category: String): String
+    suspend fun updateCategory(category: String)
 }

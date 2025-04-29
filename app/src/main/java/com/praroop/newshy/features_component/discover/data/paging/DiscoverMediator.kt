@@ -6,7 +6,6 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.praroop.newshy.features_component.core.data.local.NewsyArticleDatabase
-import com.praroop.newshy.features_component.core.data.remote.models.toDiscover
 import com.praroop.newshy.features_component.core.data.remote.models.toDiscoverArticle
 import com.praroop.newshy.features_component.discover.data.local.model.DiscoverArticleDto
 import com.praroop.newshy.features_component.discover.data.local.model.DiscoverKeys

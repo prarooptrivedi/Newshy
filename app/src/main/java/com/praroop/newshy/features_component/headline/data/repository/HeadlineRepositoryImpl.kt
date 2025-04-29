@@ -22,7 +22,6 @@ class HeadlineRepositoryImpl(
     private val headlineApi: HeadlineApi,
     private val database: NewsyArticleDatabase,
     private val mapper: Mapper<HeadLineDto, NewsyArticel>,
-    private val articleHeadlineMapper: Mapper<Article, HeadLineDto>
 ) : HeadlineRepository {
     @OptIn(ExperimentalPagingApi::class)
     override fun fetchHeadlineArticle(
@@ -42,7 +41,6 @@ class HeadlineRepositoryImpl(
                 category = category,
                 country = country,
                 language = language,
-                articleheadlineDtoMapper = articleHeadlineMapper
             )
         ) {
             database.headlineDao().getAllHeadlineArticles()
